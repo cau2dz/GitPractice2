@@ -24,7 +24,7 @@ object SimpleServer extends IOApp {
     case GET -> Root / "length" / str => Ok("")
 
     case GET -> Root / id  => Ok(IO.fromFuture(IO(Future {
-      Status.find(_.code.toString == id).asJson
+      Status.find(_.key.toString == id).asJson
     })))
   }
 
